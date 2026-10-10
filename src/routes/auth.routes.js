@@ -1,7 +1,8 @@
 import {Router} from "express"
 const router=Router()
-import {registerValidator} from "../validator/auth.validator.js"
-import {register}  from "../controllers/auth.controllers.js"
+import {loginValidator, registerValidator} from "../validator/auth.validator.js"
+import {getMe, login, refresh, register}  from "../controllers/auth.controllers.js"
+import { authenticate } from "../middlewares/auth.middlewares.js"
 
 /**
  * @POST /api/auth/register
@@ -11,4 +12,10 @@ import {register}  from "../controllers/auth.controllers.js"
  */
 router.post("/register",registerValidator,register)
 
+router.post("/login",loginValidator,login)
+
+router.post("/refresh",refresh)
+
+
+router.get("/me",authenticate,getMe)
 export default router

@@ -4,7 +4,7 @@ import {loginValidator, registerValidator} from "../validator/auth.validator.js"
 import {getMe, login, refresh, register}  from "../controllers/auth.controllers.js"
 import { authenticate } from "../middlewares/auth.middlewares.js"
 
-/**
+/** 
  * @POST /api/auth/register
  * @param req Express req
  * @param req.body ={email,name,password}

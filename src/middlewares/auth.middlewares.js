@@ -1,7 +1,8 @@
 import { readAccessToken } from "../utils/auth.utils.js"
 
 export function authenticate(req,res,next){
-    const accessToken =req.headers.Authorizatiom?.split(" ")[1]
+    const accessToken =req.headers.authorization?.split(" ")[1]
+  
     if(!accessToken){
         return res.status(400).json({
             message:"Access Token not found in the request header"
